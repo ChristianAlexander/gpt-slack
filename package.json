@@ -1,0 +1,16 @@
+{
+  "name": "gpt-slack",
+  "version": "0.0.1",
+  "description": "A ChatGPT Slack integration using Slack's Bolt framework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christian Alexander",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/bolt": "^3.13.0",
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1"
+  }
+}
