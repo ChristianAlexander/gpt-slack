@@ -29,7 +29,10 @@ const getBotUserId = (() => {
   };
 })();
 
-app.event("app_mention", async ({ event, say, client }) => {
+async function handleMessage({ event, say, client }) {
+  // Prevent infinite loops in DMs by only permitting new, human-written messages (which lack a subtype).
+  if (event.subtype) return;
+
   const { messages: threadMessages } = await client.conversations.replies({
     channel: event.channel,
     ts: event.thread_ts ?? event.ts,
@@ -62,7 +65,10 @@ app.event("app_mention", async ({ event, say, client }) => {
       text: "Sorry, I'm having trouble processing your request.",
     });
   }
-});
+}
+
+app.event("app_mention", handleMessage);
+app.event("message", handleMessage);
 
 function stripMentions(text, botUserId) {
   text = text.replace(`<@${botUserId}>`, "@Assistant");
