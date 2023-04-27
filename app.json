@@ -1,0 +1,19 @@
+{
+  "name": "GPT Slack",
+  "description": "A ChatGPT Slack integration using Slack's Bolt framework.",
+  "repository": "https://github.com/ChristianAlexander/gpt-slack",
+  "env": {
+    "SLACK_BOT_TOKEN": {
+      "description": "Obtain this from the Slack Bolt JS getting started guide, making sure to enable socket mode.",
+      "required": true
+    },
+    "SLACK_SIGNING_SECRET": {
+      "description": "Obtain this from the Slack Bolt JS getting started guide, making sure to enable socket mode.",
+      "required": true
+    },
+    "OPENAI_API_KEY": {
+      "description": "An API key from OpenAI, with permission to access the gpt-3.5-turbo model.",
+      "required": true
+    }
+  }
+}

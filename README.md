@@ -4,7 +4,9 @@ A slack bot that proxies messages out to OpenAI's ChatGPT API.
 
 ## Running
 
-A Dockerfile is provided to bundle up the application.
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ChristianAlexander/gpt-slack)
+
+A Dockerfile is provided to bundle up the application, if Heroku is not an option for you.
 
 ## Configuration
 
@@ -12,7 +14,7 @@ Environment variables:
 
 - `SLACK_BOT_TOKEN`: Obtain this (and the other slack variables) from [the Slack Bolt JS getting started guide](https://slack.dev/bolt-js/tutorial/getting-started#tokens-and-installing-apps).
 - `SLACK_SIGNING_SECRET`
-- `SLACK_APP_TOKEN`
+- `SLACK_APP_TOKEN`: If an app token is provided, the application will run in "[socket mode](https://api.slack.com/apis/connections/socket)," and will not need to have an incoming request URL configured.
 - `OPENAI_API_KEY`: Obtain this [from OpenAI](https://platform.openai.com/account/api-keys)
 
 Required Slack permissions:
@@ -23,6 +25,11 @@ Required Slack permissions:
 - `groups:history`: Allow the bot to read threads to provide context to ChatGPT
 - `im:history`: Allow the bot to read threads to provide context to ChatGPT
 - `mpim:history`: Allow the bot to read threads to provide context to ChatGPT
+
+Additional required setup:
+
+- Configure the Slack app's event request URL to be `https://<deployed-app-url>/slack/events`
+- Add an event subscription for `app_mention` to the bot app under "event subscriptions" in Slack's developer portal
 
 ## Usage
 
