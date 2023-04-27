@@ -10,6 +10,8 @@ A Dockerfile is provided to bundle up the application, if Heroku is not an optio
 
 ## Configuration
 
+To easily create the Slack app, use [slack-manifest-template.yaml](./slack-manifest-template.yaml) in the "[create new apps](https://api.slack.com/apps)" page on Slack. Make sure to update the event subscription URL once the gpt-slack application is deployed.
+
 Environment variables:
 
 - `SLACK_BOT_TOKEN`: Obtain this (and the other slack variables) from [the Slack Bolt JS getting started guide](https://slack.dev/bolt-js/tutorial/getting-started#tokens-and-installing-apps).
