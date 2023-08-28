@@ -16,7 +16,7 @@ Environment variables:
 
 - `SLACK_BOT_TOKEN`: Obtain this (and the other slack variables) from [the Slack Bolt JS getting started guide](https://slack.dev/bolt-js/tutorial/getting-started#tokens-and-installing-apps).
 - `SLACK_SIGNING_SECRET`
-- `SLACK_APP_TOKEN`: If an app token is provided, the application will run in "[socket mode](https://api.slack.com/apis/connections/socket)," and will not need to have an incoming request URL configured.
+- `SLACK_APP_TOKEN`: If an app token is provided, the application will run in "[socket mode](https://api.slack.com/apis/connections/socket)," and will not need to have an incoming request URL configured. Only set this value if you intend to run in socket mode. Attempting to do a webhook event subscription with this value set may fail.
 - `OPENAI_API_KEY`: Obtain this [from OpenAI](https://platform.openai.com/account/api-keys)
 
 Required Slack permissions:
